@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-api-config-map
+data:
+  PORT: {{ required "A valid value for api.port must be provided" .Values.api.port | quote }}
+  CLIENT_URL: https://{{ required "A valid value for client.host must be provided" .Values.client.host }}
+
+  AWS_REGION: {{ required "A valid value for cognito.region must be provided" .Values.cognito.region }}
+  AWS_USER_POOLS_ID: {{ required "A valid value for cognito.userPoolId must be provided" .Values.cognito.userPoolId }}
+
+  RABBIT_MQ_HOST: {{ .Release.Name }}-{{ required "A valid value for rabbit.host must be provided" .Values.rabbit.host }}
+  RABBIT_MQ_PORT: {{ required "A valid value for rabbit.port must be provided" .Values.rabbit.port | quote }}
+  RABBIT_MQ_USER: {{ required "A valid value for rabbit.username must be provided" .Values.rabbit.username }}
+  RABBIT_MQ_PASS: {{ required "A valid value for rabbit.password must be provided" .Values.rabbit.password }}
+
+  MYSQL_HOST: {{ .Release.Name }}-{{ required "A valid value for mysql.host must be provided" .Values.mysql.host }}
+  MYSQL_PORT: {{ required "A valid value for mysql.port must be provided" .Values.mysql.port | quote }}
+  MYSQL_USER: {{ required "A valid value for mysql.username must be provided" .Values.mysql.username }}
+  MYSQL_PASS: {{ required "A valid value for mysql.password must be provided" .Values.mysql.password }}
+  MYSQL_DB: {{ required "A valid value for api.dbName must be provided" .Values.api.dbName }}

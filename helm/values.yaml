@@ -18,14 +18,12 @@ cognito:
   userPoolId: ap-southeast-2_zoRQDzN1a
 
 rabbit:
-  install: true
   host: rabbitmq
   port: 5672
   username: sv
   password: sv
 
 mysql:
-  install: true
   host: msql-svc
   port: 3306
   username: sv

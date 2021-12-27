@@ -1,0 +1,12 @@
+dependencies:
+- name: sv-user-client
+  repository: https://helm.stingyvegan.com
+  version: 0.3.2-helm-improvements.2
+- name: sv-api
+  repository: https://helm.stingyvegan.com
+  version: 0.3.0-helm.4
+- name: rabbitmq
+  repository: https://charts.bitnami.com/bitnami
+  version: 8.24.12
+digest: sha256:6b5347ff048f942e3ff20499cd66474a619f91a4c334e25e04a0b7977d6ee209
+generated: "2021-12-27T16:28:12.3942707+10:30"

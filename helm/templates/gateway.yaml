@@ -11,7 +11,12 @@ spec:
         name: http
         protocol: HTTP
       hosts:
-        - {{ required "A valid value for api.host must be provided" .Values.api.host | quote }}
+        - {{ required "A valid value for gateway.apiHost must be provided" .Values.gateway.apiHost | quote }}
+        - {{ required "A valid value for gateway.clientHost must be provided" .Values.gateway.clientHost | quote }}
+        {{- if eq .Values.rabbitmq.include true }}
+        - {{ required "A valid value for gateway.rabbitmqHost must be provided" .Values.gateway.rabbitmqHost | quote }}
+        {{- end}}
+{{- if eq .Values.gateway.tls true }}
       tls:
         httpsRedirect: true
     - port:
@@ -22,4 +27,9 @@ spec:
         mode: SIMPLE
         credentialName: stingyvegan-com-au-tls
       hosts:
-        - {{ required "A valid value for api.host must be provided" .Values.api.host | quote }}
+        - {{ required "A valid value for gateway.apiHost must be provided" .Values.gateway.apiHost | quote }}
+        - {{ required "A valid value for gateway.clientHost must be provided" .Values.gateway.clientHost | quote }}
+        {{- if eq .Values.rabbitmq.include true }}
+        - {{ required "A valid value for gateway.rabbitmqHost must be provided" .Values.gateway.rabbitmqHost | quote }}
+        {{- end}}
+{{- end }}

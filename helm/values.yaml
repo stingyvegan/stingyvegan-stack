@@ -1,30 +1,26 @@
-services:
-  includeDatabase: true
-  includeRabbit: true
+gateway:
+  tls: false
+  apiHost: api.local.stingyvegan.com
+  clientHost: local.stingyvegan.com
+  rabbitmqHost: rabbit.local.stingyvegan.com
 
-api:
-  registry: ghcr.io/stingyvegan/sv-api
-  version: v0.2.0
-  registrySecretName: registry-github-danielemery
-  host: "api.stingyvegan.com.au"
-  port: 80
-  dbName: sv
+sv-api:
+  postgres:
+    include: true
+  rabbitmq:
+    include: false
+    host: stingyvegan-rabbitmq
+  gateway:
+    include: false
+    name: stingyvegan-gateway
 
-client:
-  host: "stingyvegan.com.au"
+sv-client:
+  gateway:
+    include: false
+    name: stingyvegan-gateway
 
-cognito:
-  region: ap-southeast-2
-  userPoolId: ap-southeast-2_zoRQDzN1a
-
-rabbit:
-  host: rabbitmq
-  port: 5672
-  username: sv
-  password: sv
-
-mysql:
-  host: msql-svc
-  port: 3306
-  username: sv
-  password: sv
+rabbitmq:
+  include: true
+  auth:
+    username: sv
+    password: sv

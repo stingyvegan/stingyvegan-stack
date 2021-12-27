@@ -7,3 +7,15 @@ type: application
 version: 0.0.0
 
 appVersion: "0.0.0"
+
+dependencies:
+  - name: sv-user-client
+    version: 0.3.2-helm-improvements.2
+    repository: https://helm.stingyvegan.com
+  - name: sv-api
+    version: 0.3.0-helm.4
+    repository: https://helm.stingyvegan.com
+  - name: rabbitmq
+    version: 8.24.12
+    repository: https://charts.bitnami.com/bitnami
+    condition: rabbitmq.include

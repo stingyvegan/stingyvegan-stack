@@ -2,6 +2,20 @@
 
 Documentation, docker-compose and helm charts for the full stingyvegan suite of services
 
+## Services
+
+### API
+
+https://github.com/stingyvegan/sv-api
+
+StingyVegan exposes a REST API and WebSocket running node/express.
+
+### Client
+
+https://github.com/stingyvegan/user-client
+
+StingyVegan's client uses React bootstrapped with create-react-app.
+
 ## Helm
 
 Helm charts are provided to run the entire stingyvegan application easily in kubernetes.
